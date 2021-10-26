@@ -16,9 +16,11 @@ class Concat(nn.Module):
         for idx, module in enumerate(args):
             self.add_module(str(idx), module)
             print(module)
+        
+        for module in self._modules.values():
+            print(module)
 
     def forward(self, input):
-        print("FORWARD")
         inputs = []
         for module in self._modules.values():
             inputs.append(module(input))
